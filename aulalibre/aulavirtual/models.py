@@ -19,6 +19,7 @@ class Alumno(models.Model):
         return "%s, %s" % (self.apellido, self.nombre)
 
 
+
 class Profesor(models.Model):
     apellido = models.CharField(max_length=100)
     nombre = models.CharField(max_length=100)
@@ -26,8 +27,8 @@ class Profesor(models.Model):
     email = models.EmailField(blank=True)
 
     class Meta:
-        verbose_name = ('MODELNAME')
-        verbose_name_plural = ('MODELNAMEs')
+        verbose_name = ('Profesor')
+        verbose_name_plural = ('Profesores')
 
     def __unicode__(self):
         return "%s, %s" % (self.apellido, self.nombre)
@@ -38,8 +39,8 @@ class Colegio(models.Model):
     ciudad = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name = ('MODELNAME')
-        verbose_name_plural = ('MODELNAMEs')
+        verbose_name = ('Colegio')
+        verbose_name_plural = ('Colegios')
 
     def __unicode__(self):
         return self.nombre
@@ -47,13 +48,12 @@ class Colegio(models.Model):
 
 class Curso(models.Model):
     colegio = models.ForeignKey('Colegio')
-    anio = models.IntegerField(verbose_name='A')
+    anio = models.IntegerField(verbose_name='Año')
     division = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name = ('MODELNAME')
-        verbose_name_plural = ('MODELNAMEs')
+        verbose_name = ('Curso')
+        verbose_name_plural = ('Cursos')
 
     def __unicode__(self):
         return "%s, %s" % (self.anio, self.division)
-        
