@@ -48,7 +48,7 @@ class Colegio(models.Model):
 
 class Curso(models.Model):
     colegio = models.ForeignKey('Colegio')
-    anio = models.IntegerField(verbose_name='Año')
+    anio = models.IntegerField(verbose_name=u'Año')
     division = models.CharField(max_length=100)
 
     class Meta:
@@ -56,7 +56,7 @@ class Curso(models.Model):
         verbose_name_plural = ('Cursos')
 
     def __unicode__(self):
-        return "%s, %s" % (self.anio, self.division)
+        return u'%s "%s" - %s' % (self.anio, self.division, self.colegio)
 
 
 class CursoMateria(models.Model):
@@ -65,23 +65,23 @@ class CursoMateria(models.Model):
     anio_materia = models.ForeignKey('AnioMateria')
 
     class Meta:
-        verbose_name = ('CursoMateria')
-        verbose_name_plural = ('CursoMateria')
+        verbose_name = ('Curso Materia')
+        verbose_name_plural = ('Curso Materias')
 
     def __unicode__(self):
-        return "%s, %s" % (self.anio, self.division)
+        return u"%s - %s - %s" % (self.curso, self.anio_materia, self.profesor)
 
 
 class AnioMateria(models.Model):
     materia = models.ForeignKey('Materia')
-    anio = models.IntegerField(verbose_name='Año')
+    anio = models.IntegerField(verbose_name=u'Año')
 
     class Meta:
-        verbose_name = ('AnioMateria')
-        verbose_name_plural = ('AnioMateria')
+        verbose_name = (u'Año Materia')
+        verbose_name_plural = (u'Año Materias')
 
     def __unicode__(self):
-        return "%s, %s" % (self.anio, self.materia)
+        return u"%s - %s" % (self.materia, self.anio)
 
 
 class Materia(models.Model):
@@ -89,8 +89,8 @@ class Materia(models.Model):
     area_tematica = models.ForeignKey('AreaTematica')
 
     class Meta:
-        verbose_name = ('AnioMateria')
-        verbose_name_plural = ('AnioMateria')
+        verbose_name = ('Materia')
+        verbose_name_plural = ('Materias')
 
     def __unicode__(self):
         return self.nombre
@@ -100,8 +100,8 @@ class AreaTematica(models.Model):
     nombre = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name = ('Area Tematica')
-        verbose_name_plural = ('Areas Tematicas')
+        verbose_name = ('Área Temática')
+        verbose_name_plural = ('Áreas Temáticas')
 
     def __unicode__(self):
         return self.nombre
@@ -133,7 +133,7 @@ class Recurso(models.Model):
     enlace = models.TextField()
     adjunto = models.FileField(upload_to='recursos')
     area_tematica = models.ForeignKey('AreaTematica')
-    anio = models.IntegerField(verbose_name='Año')
+    anio = models.IntegerField(verbose_name=u'Año')
 
     class Meta:
         verbose_name = ('Recurso')
