@@ -30,13 +30,19 @@ class CursoMateriaAdmin(admin.ModelAdmin):
     search_fields = ['anio_materia', 'profesor', 'curso']
     list_filter = ['anio_materia', 'profesor', 'curso']
 
+
+class MateriaAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'area_tematica']
+    search_fields = ['nombre', ]
+    list_filter = ['area_tematica', ]
+
 admin.site.register(Alumno, AlumnoAdmin)
 admin.site.register(Profesor)
 admin.site.register(Colegio, ColegioAdmin)
 admin.site.register(Curso)
 admin.site.register(CursoMateria, CursoMateriaAdmin)
 admin.site.register(AnioMateria, AnioMateriaAdmin)
-admin.site.register(Materia)
+admin.site.register(Materia, MateriaAdmin)
 admin.site.register(AreaTematica)
 admin.site.register(Eje)
 admin.site.register(Recurso)
