@@ -47,7 +47,7 @@ class Colegio(models.Model):
 
 class Curso(models.Model):
     colegio = models.ForeignKey('Colegio')
-    anio = models.IntegerField(verbose_name='Año')
+    anio = models.IntegerField(verbose_name=u'Año')
     division = models.CharField(max_length=100)
 
     class Meta:
@@ -55,7 +55,7 @@ class Curso(models.Model):
         verbose_name_plural = ('Cursos')
 
     def __unicode__(self):
-        return "%s, %s" % (self.anio, self.division)
+        return u'%s "%s"' % (self.anio, self.division)
 
 
 class CursoMateria(models.Model):
@@ -68,19 +68,19 @@ class CursoMateria(models.Model):
         verbose_name_plural = ('Curso Materias')
 
     def __unicode__(self):
-        return "%s, %s" % (self.anio, self.division)
+        return u"%s - %s - %s" % (self.curso, self.anio_materia, self.profesor)
 
 
 class AnioMateria(models.Model):
     materia = models.ForeignKey('Materia')
-    anio = models.IntegerField(verbose_name='Año')
+    anio = models.IntegerField(verbose_name=u'Año')
 
     class Meta:
-        verbose_name = ('Anio Materia')
-        verbose_name_plural = ('Anio Materias')
+        verbose_name = (u'Año Materia')
+        verbose_name_plural = (u'Año Materias')
 
     def __unicode__(self):
-        return "%s, %s" % (self.anio, self.materia)
+        return u"%s - %s" % (self.materia, self.anio)
 
 
 class Materia(models.Model):
@@ -99,8 +99,8 @@ class AreaTematica(models.Model):
     nombre = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name = ('Area Tematica')
-        verbose_name_plural = ('Areas Tematicas')
+        verbose_name = ('Área Temática')
+        verbose_name_plural = ('Áreas Temáticas')
 
     def __unicode__(self):
         return self.nombre
@@ -125,7 +125,7 @@ class Recurso(models.Model):
     descripcion = models.TextField()
     adjunto = models.FileField(upload_to='recursos')
     area_tematica = models.ForeignKey('AreaTematica')
-    anio = models.IntegerField(verbose_name='Año')
+    anio = models.IntegerField(verbose_name=u'Año')
 
     class Meta:
         verbose_name = ('Recurso')
