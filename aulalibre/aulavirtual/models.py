@@ -56,7 +56,7 @@ class Curso(models.Model):
         verbose_name_plural = ('Cursos')
 
     def __unicode__(self):
-        return u'%s "%s"' % (self.anio, self.division)
+        return u'%s "%s" - %s' % (self.anio, self.division, self.colegio)
 
 
 class CursoMateria(models.Model):
