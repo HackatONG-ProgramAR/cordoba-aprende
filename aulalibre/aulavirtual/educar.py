@@ -1,8 +1,8 @@
-from urllib import urlopen
+from urllib2 import urlopen
 from urlparse import urljoin
 import json
 
-URL_BASE = """https://api.educ.ar/0.9/"""
+URL_BASE = """http://api.educ.ar/0.9/"""
 
 URL_EBOOKS = urljoin(URL_BASE, 'recursos/ebooks')
 
@@ -33,6 +33,8 @@ def get_descripciones_ebooks():
 
 
 def get_ebook(_id):
+    res = get_json('recursos/ebooks/%d' % _id)
+    return res
     pass
 
 

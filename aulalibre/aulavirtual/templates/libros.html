@@ -54,85 +54,26 @@
       </div>
     </div>
 
+
+
+
+
+
     <div class="container">
       <div class="row">
         <ul class="thumbnails">
+          {% for re in recursos %}
           <li class="col-md-4">
             <div class="thumbnail">
               <img src="../static/book.png" alt="">              
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
+              <h3>{{ re.nombre }}</h3>
+              <p>{{ re.descripcion }}</p>
+              <p><a class="btn btn-default" href="{{re.enlace}}" role="button">Ver &raquo;</a></p>
             </div>
           </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
+          {% endfor %}
 
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
 
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
-
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
-          <li class="col-md-4">
-            <div class="thumbnail">
-
-              <img src="../static/book.png" alt="">
-              <h3>Thumbnail label</h3>
-              <p>Thumbnail caption...</p>
-              <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-            </div>
-          </li>
         </div>
       </ul>
 
