@@ -36,8 +36,14 @@ class MateriaAdmin(admin.ModelAdmin):
     search_fields = ['nombre', ]
     list_filter = ['area_tematica', ]
 
+
+class ProfesorAdmin(admin.ModelAdmin):
+    list_display = ['apellido', 'nombre', 'email', 'colegio']
+    search_fields = ['apellido', 'nombre', 'email']
+    list_filter = ['colegio', ]
+
 admin.site.register(Alumno, AlumnoAdmin)
-admin.site.register(Profesor)
+admin.site.register(Profesor, ProfesorAdmin)
 admin.site.register(Colegio, ColegioAdmin)
 admin.site.register(Curso)
 admin.site.register(CursoMateria, CursoMateriaAdmin)
