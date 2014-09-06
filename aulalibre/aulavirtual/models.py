@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from educar import get_descripciones_ebooks
 
 # Create your models here.
 
@@ -105,6 +106,12 @@ class AreaTematica(models.Model):
     def __unicode__(self):
         return self.nombre
 
+    @classmethod
+    def crear_areas(cls):
+        areas = ["Matemática", "Lengua", "Ciencias"]
+        for n in areas:
+            cls.objects.create(nombre=n)
+
 
 class Eje(models.Model):
     nombre = models.CharField(max_length=100)
@@ -123,13 +130,30 @@ class Recurso(models.Model):
     tipo = models.CharField(max_length=100)
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
+    enlace = models.TextField()
     adjunto = models.FileField(upload_to='recursos')
     area_tematica = models.ForeignKey('AreaTematica')
     anio = models.IntegerField(verbose_name='Año')
 
     class Meta:
-        verbose_name = ('Eje')
-        verbose_name_plural = ('Ejes')
+        verbose_name = ('Recurso')
+        verbose_name_plural = ('Recursos')
+
+    @classmethod
+    def cargar_ebooks(cls, descripciones=None):
+        if descripciones is None:
+            descripciones = get_descripciones_ebooks()
+        # TODO: traer el area posta
+        area = AreaTematica.objects.get(nombre="Ciencias")
+        for desc in descripciones:
+            cls.objects.create(
+                    tipo="ebook",
+                    nombre=desc[u'titulo'],
+                    descripcion=desc['descripcion'],
+                    area_tematica=area,
+                    anio=3,
+                    enlace=desc['visualizacion_educar']
+                )
 
     def __unicode__(self):
         return self.nombre
