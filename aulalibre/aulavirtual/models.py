@@ -64,8 +64,8 @@ class CursoMateria(models.Model):
     anio_materia = models.ForeignKey('AnioMateria')
 
     class Meta:
-        verbose_name = ('CursoMateria')
-        verbose_name_plural = ('CursoMateria')
+        verbose_name = ('Curso Materia')
+        verbose_name_plural = ('Curso Materias')
 
     def __unicode__(self):
         return "%s, %s" % (self.anio, self.division)
@@ -76,8 +76,8 @@ class AnioMateria(models.Model):
     anio = models.IntegerField(verbose_name='Año')
 
     class Meta:
-        verbose_name = ('AnioMateria')
-        verbose_name_plural = ('AnioMateria')
+        verbose_name = ('Anio Materia')
+        verbose_name_plural = ('Anio Materias')
 
     def __unicode__(self):
         return "%s, %s" % (self.anio, self.materia)
@@ -88,8 +88,8 @@ class Materia(models.Model):
     area_tematica = models.ForeignKey('AreaTematica')
 
     class Meta:
-        verbose_name = ('AnioMateria')
-        verbose_name_plural = ('AnioMateria')
+        verbose_name = ('Materia')
+        verbose_name_plural = ('Materias')
 
     def __unicode__(self):
         return self.nombre
@@ -128,8 +128,8 @@ class Recurso(models.Model):
     anio = models.IntegerField(verbose_name='Año')
 
     class Meta:
-        verbose_name = ('Eje')
-        verbose_name_plural = ('Ejes')
+        verbose_name = ('Recurso')
+        verbose_name_plural = ('Recursos')
 
     def __unicode__(self):
         return self.nombre
