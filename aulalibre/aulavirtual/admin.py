@@ -42,10 +42,17 @@ class ProfesorAdmin(admin.ModelAdmin):
     search_fields = ['apellido', 'nombre', 'email']
     list_filter = ['colegio', ]
 
+
+class CursoAdmin(admin.ModelAdmin):
+    list_display = ['anio', 'division', 'colegio']
+    search_fields = ['colegio']
+    list_filter = ['anio', 'division', 'colegio']
+
+
 admin.site.register(Alumno, AlumnoAdmin)
 admin.site.register(Profesor, ProfesorAdmin)
 admin.site.register(Colegio, ColegioAdmin)
-admin.site.register(Curso)
+admin.site.register(Curso, CursoAdmin)
 admin.site.register(CursoMateria, CursoMateriaAdmin)
 admin.site.register(AnioMateria, AnioMateriaAdmin)
 admin.site.register(Materia, MateriaAdmin)
