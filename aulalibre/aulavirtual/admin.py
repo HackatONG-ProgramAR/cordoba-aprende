@@ -49,6 +49,12 @@ class CursoAdmin(admin.ModelAdmin):
     list_filter = ['anio', 'division', 'colegio']
 
 
+class EjeAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'anio_materia']
+    search_fields = ['nombre']
+    list_filter = ['anio_materia', ]
+
+
 admin.site.register(Alumno, AlumnoAdmin)
 admin.site.register(Profesor, ProfesorAdmin)
 admin.site.register(Colegio, ColegioAdmin)
@@ -57,5 +63,5 @@ admin.site.register(CursoMateria, CursoMateriaAdmin)
 admin.site.register(AnioMateria, AnioMateriaAdmin)
 admin.site.register(Materia, MateriaAdmin)
 admin.site.register(AreaTematica)
-admin.site.register(Eje)
+admin.site.register(Eje, EjeAdmin)
 admin.site.register(Recurso)
